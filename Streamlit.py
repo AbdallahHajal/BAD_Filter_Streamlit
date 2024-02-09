@@ -12,6 +12,8 @@ import streamlit as st
 import requests
 from streamlit_option_menu import option_menu
 from rdkit import Chem
+from rdkit.Chem import Draw
+
 from mordred import Calculator, descriptors
 import pandas as pd
 import numpy as np
