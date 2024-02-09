@@ -14,7 +14,6 @@ from streamlit_option_menu import option_menu
 from rdkit import Chem
 from rdkit.Chem import Draw
 from mordred import Calculator, descriptors
-from supervised.automl import AutoML
 import pandas as pd
 import numpy as np
 import time
@@ -30,9 +29,6 @@ from streamlit_ketcher import st_ketcher
 import matplotlib.pyplot as plt
 import smtplib
 from email.message import EmailMessage
-import numpy as np
-import pandas as pd
-from rdkit import Chem
 from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
