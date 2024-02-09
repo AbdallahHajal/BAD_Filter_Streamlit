@@ -313,12 +313,12 @@ elif selected == "Batch Calculation":
     st.markdown('<h1 class="text-second-title">Batch Mode Calculation</h1>', unsafe_allow_html=True)
     st.write('Upload a CSV file containing SMILES strings for batch prediction of aggregation status.')
     st.markdown("""
-- The file must be in CSV format.
-- The first row should contain column headers.
-- There must be a column named `SMILES` which contains the SMILES strings of the molecules for which you want to predict the aggregation status.
-- Each row after the header should contain one molecule's SMILES string in the `SMILES` column.
-- Ensure there are no empty rows or columns in your file.
-""")
+    - The file must be in CSV format.
+    - The first row should contain column headers.
+    - There must be a column named `SMILES` which contains the SMILES strings of the molecules for which you want to predict the aggregation status.
+    - Each row after the header should contain one molecule's SMILES string in the `SMILES` column.
+    - Ensure there are no empty rows or columns in your file.
+    """)
     st.markdown('**Example of the CSV file format:**')
     st.markdown("""
     ```plaintext
@@ -362,7 +362,7 @@ elif selected == "Batch Calculation":
             )
         else:
             st.error("The uploaded file does not contain a 'SMILES' column.")
-
+    
 
 elif selected == "Contact":
     st.markdown('<h1 class="text-second-title">Contact</h1>', unsafe_allow_html=True)
