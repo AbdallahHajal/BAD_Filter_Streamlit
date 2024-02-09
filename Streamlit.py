@@ -63,8 +63,8 @@ def save_response_content(response, destination):
                 f.write(chunk)
 
 # Example usage:
-download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
-download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
+model= download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
+scaler= download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
@@ -86,16 +86,6 @@ background: rgba(0,0,0,0);
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-def load_resource_lazy(file_path):
-    if file_path not in resource_cache:
-        try:
-            with open(file_path, 'rb') as f:
-                resource_cache[file_path] = pickle.load(f)
-        except Exception as e:
-            print(f"Error loading {file_path}: {str(e)}")
-            return None
-    gc.collect()
-    return resource_cache[file_path]
 
 def preprocess_and_scale_MM(X,scaler_MM):
     binary_cols = [col for col in X.columns if 'Col' in col]
@@ -171,7 +161,7 @@ custom_css = """
 
 st.markdown(custom_css, unsafe_allow_html=True)
 #main title
-st.markdown('<h1 class="text-gradient-title">SerotoninAI</h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="text-gradient-title">BAD Molecule filter</h1>', unsafe_allow_html=True)
 
 
 success_style = """
@@ -199,7 +189,7 @@ footer_style = """
     font-size: 16px;
 """
 st.markdown(
-    f'<div style="{footer_style}">Copyright (C) 2023 Natalia Łapińska (Czub)</div>',
+    f'<div style="{footer_style}">Copyright (C) 2024 Abdallah Abou Hajal</div>',
     unsafe_allow_html=True
 )
 
@@ -263,8 +253,6 @@ if selected == "Home":
 # Single Molecule Prediction Section
 elif selected == "Single Molecule Prediction":
     # Load the necessary model and scaler
-    model = load_resource_lazy('MM_model.pkl')
-    scaler = load_resource_lazy('scaler_MM.pkl')
 
     # Allow users to input or draw SMILES
     st.subheader("Input or Draw a Molecule")
