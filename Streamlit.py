@@ -283,8 +283,8 @@ elif selected == "Single Molecule Prediction":
                 with col2:
                     with st.spinner('Calculation in progress...'):
                         # Prepare the molecule for prediction
-                        morgan_fingerprints = morgan_fpts(df['SMILES'])
-                        mordred_descriptors = All_Mordred_descriptors(df['SMILES'])
+                        morgan_fingerprints = morgan_fpts(smiles_input)
+                        mordred_descriptors = All_Mordred_descriptors(smiles_input)
                         descriptors_combined = np.concatenate([morgan_fingerprints, mordred_descriptors], axis=1)
                         
                         # Scale and predict
