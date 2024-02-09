@@ -13,7 +13,6 @@ import requests
 from streamlit_option_menu import option_menu
 from rdkit import Chem
 from rdkit.Chem import Draw
-
 from mordred import Calculator, descriptors
 import pandas as pd
 import numpy as np
@@ -274,6 +273,7 @@ elif selected == "Single Molecule Prediction":
         col1, col2 = st.columns(2)
         try:
             molecule = Chem.MolFromSmiles(smiles_input)
+            df = pd.DataFrame({'SMILES': [smiles_input]})
             if molecule:
                 # Show the molecule's structure
                 img = Draw.MolToImage(molecule)
@@ -283,8 +283,8 @@ elif selected == "Single Molecule Prediction":
                 with col2:
                     with st.spinner('Calculation in progress...'):
                         # Prepare the molecule for prediction
-                        morgan_fingerprints = morgan_fpts([smiles_input])
-                        mordred_descriptors = All_Mordred_descriptors([smiles_input])
+                        morgan_fingerprints = morgan_fpts(df['SMILES'])
+                        mordred_descriptors = All_Mordred_descriptors(df['SMILES'])
                         descriptors_combined = np.concatenate([morgan_fingerprints, mordred_descriptors], axis=1)
                         
                         # Scale and predict
