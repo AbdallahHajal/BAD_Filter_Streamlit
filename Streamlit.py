@@ -37,22 +37,14 @@ import pickle
 import requests
 import joblib
 # Cache for models, scalers, and training sets
+file_name_m = "MM_model.pkl" # Specify the same file name used for saving
+file_name_s="scaler_MM.pkl"
 
-resource_cache = {}
+with open(file_name_m, 'rb') as file:
+model = pickle.load(file)
 
-def load_resource_lazy(file_path):
-    if file_path not in resource_cache:
-        try:
-            with open(file_path, 'rb') as f:
-                resource_cache[file_path] = pickle.load(f)
-        except Exception as e:
-            print(f"Error loading {file_path}: {str(e)}")
-            return None
-    gc.collect()
-    return resource_cache[file_path]
-
-model = load_resource_lazy('MM_model.pkl')
-scaler = load_resource_lazy('scaler_MM.pkl')
+with open(file_name_s, 'rb') as file:
+scaler = pickle.load(file)
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
