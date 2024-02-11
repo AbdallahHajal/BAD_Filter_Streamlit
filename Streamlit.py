@@ -33,47 +33,10 @@ from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
 import requests
+import joblib
 
-def download_file_from_google_drive(id, destination):
-    URL = "https://drive.google.com/uc?export=download"
-
-    session = requests.Session()
-
-    response = session.get(URL, params={'id': id}, stream=True)
-    token = get_confirm_token(response)
-
-    if token:
-        params = {'id': id, 'confirm': token}
-        response = session.get(URL, params=params, stream=True)
-
-    save_response_content(response, destination)    
-
-def get_confirm_token(response):
-    for key, value in response.cookies.items():
-        if key.startswith('download_warning'):
-            return value
-
-    return None
-
-def save_response_content(response, destination):
-    CHUNK_SIZE = 32768
-
-    with open(destination, "wb") as f:
-        for chunk in response.iter_content(CHUNK_SIZE):
-            if chunk: # filter out keep-alive new chunks
-                f.write(chunk)
-
-
-try:
-    # Attempt to download and then load the scaler and model
-    model= download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
-    scaler= download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
-
-except Exception as e:
-    print(f"An error occurred: {e}")
-    # Handle the error appropriately
-
-
+model = joblib.load('MM_model_compressed.pkl')
+scaler = joblib.load('scaler_MM.pkl')
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
