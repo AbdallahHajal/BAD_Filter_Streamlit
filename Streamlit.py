@@ -63,9 +63,18 @@ def save_response_content(response, destination):
             if chunk: # filter out keep-alive new chunks
                 f.write(chunk)
 
-# Example usage:
-model= download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
-scaler= download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
+
+try:
+    # Attempt to download and then load the scaler and model
+    download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
+    download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
+    model = load('MM_model.pkl')
+    scaler = load('scaler_MM.pkl')
+except Exception as e:
+    print(f"An error occurred: {e}")
+    # Handle the error appropriately
+
+
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
@@ -88,13 +97,13 @@ background: rgba(0,0,0,0);
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
-def preprocess_and_scale_MM(X,scaler_MM):
+def preprocess_and_scale_MM(X,scaler):
     binary_cols = [col for col in X.columns if 'Col' in col]
     continuous_cols = [col for col in X.columns if col not in binary_cols]
     
     # Use the global scaler object
     X_continuous = X[continuous_cols].values
-    X_continuous_scaled = scaler_MM.transform(X_continuous)  # We'll use transform instead of fit_transform
+    X_continuous_scaled = scaler.transform(X_continuous)  # We'll use transform instead of fit_transform
     
     X_scaled = np.concatenate((X_continuous_scaled, X[binary_cols].values), axis=1)
     return X_scaled
@@ -348,7 +357,7 @@ elif selected == "Batch Calculation":
                     morgan_fingerprints_df = pd.DataFrame(morgan_fingerprints, columns=[f'Col_{i}' for i in range(morgan_fingerprints.shape[1])])
                     descriptors_df = pd.concat([morgan_fingerprints_df, mordred_descriptors], axis=1).fillna(0)
                     X_test = descriptors_df[descriptor_columns_MM]
-                    X_test_scaled = preprocess_and_scale_MM(X_test, scaler_MM)
+                    X_test_scaled = preprocess_and_scale_MM(X_test, scaler)
                     prediction_proba = model.predict_proba(X_test_scaled)[:, 1]
                     prediction = 'Aggregator' if prediction_proba > 0.6 else 'Non-Aggregator' if prediction_proba < 0.3 else 'Ambiguous'
                     predictions.append(prediction)
