@@ -35,7 +35,7 @@ import pickle
 import requests
 import joblib
 
-model = joblib.load('MM_model_compressed.pkl')
+model = joblib.load('MM_model.pkl')
 scaler = joblib.load('scaler_MM.pkl')
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
