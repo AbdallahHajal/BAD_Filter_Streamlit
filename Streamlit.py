@@ -20,6 +20,8 @@ import time
 import hashlib
 import json
 import html
+import gc
+import os
 from streamlit.components.v1 import html
 import smtplib
 from email.mime.multipart import MIMEMultipart
