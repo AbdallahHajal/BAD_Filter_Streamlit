@@ -37,11 +37,6 @@ import joblib
 # Cache for models, scalers, and training sets
 resource_cache = {}
 
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
-
-ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls'}
-
 def load_resource_lazy(file_path):
     if file_path not in resource_cache:
         try:
