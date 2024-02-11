@@ -36,15 +36,19 @@ from mordred import Calculator, descriptors
 import pickle
 import requests
 import joblib
-# Cache for models, scalers, and training sets
-file_name_m = "MM_model.pkl" # Specify the same file name used for saving
-file_name_s="scaler_MM.pkl"
+from io import BytesIO
+ 
 
-with open(file_name_m, 'rb') as file:
-    model = pickle.load(file)
+# Define the URLs of the pickle files on GitHub
+MM_MODEL_URI = "https://raw.githubusercontent.com/AbdallahHajal/BAD_Filter_Streamlit/main/MM_model.pkl"
+SCALER_MM_URI = "https://raw.githubusercontent.com/AbdallahHajal/BAD_Filter_Streamlit/main/scaler_MM.pkl"
 
-with open(file_name_s, 'rb') as file:
-    scaler = pickle.load(file)
+# Load the pickle files
+model = joblib.load(BytesIO(requests.get(MM_MODEL_URI).content))
+scaler = joblib.load(BytesIO(requests.get(SCALER_MM_URI).content))
+
+# Now you can use MM_model and scaler_MM as you need
+
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
