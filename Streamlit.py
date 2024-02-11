@@ -41,10 +41,10 @@ file_name_m = "MM_model.pkl" # Specify the same file name used for saving
 file_name_s="scaler_MM.pkl"
 
 with open(file_name_m, 'rb') as file:
-model = pickle.load(file)
+    model = pickle.load(file)
 
 with open(file_name_s, 'rb') as file:
-scaler = pickle.load(file)
+    scaler = pickle.load(file)
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
