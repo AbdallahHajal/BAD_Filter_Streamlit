@@ -285,17 +285,23 @@ elif selected == "Single Molecule Prediction":
                         # Prepare the molecule for prediction
                         morgan_fingerprints = morgan_fpts(df['SMILES'])
                         mordred_descriptors = All_Mordred_descriptors(df['SMILES'])
-                        descriptors_combined = np.concatenate([morgan_fingerprints, mordred_descriptors], axis=1)
+                        Morgan_fingerprints_df = pd.DataFrame(morgan_fingerprints, columns=['Col_{}'.format(i) for i in range(morgan_fingerprints.shape[1])])
+                        descriptors_combined = pd.concat([Morgan_fingerprints_df, mordred_descriptors], axis=1)
+
+                        # descriptors_combined = np.concatenate([morgan_fingerprints, mordred_descriptors], axis=1)
                         
                         # Scale and predict
-                        X_test_scaled = preprocess_and_scale_MM(descriptors_combined, scaler)
-                        prediction = model.predict(X_test_scaled)
+                        X_test = descriptors_combined[descriptor_columns_MM]
+
+                        X_test_scaled = preprocess_and_scale_MM(X_test, scaler)
+                        
+                        prediction_proba = model.predict_proba(X_test_scaled)[:, 1]  # Assuming the second column is the probability of being an aggregator
                         
                         # Determine the outcome based on prediction
-                        if prediction[0] == 1:
-                            outcome = "Aggregator"
-                        elif prediction[0] == 0:
+                        if prediction[0] < 0.3:
                             outcome = "Non-Aggregator"
+                        elif prediction[0] > 0.7:
+                            outcome = "Aggregator"
                         else:
                             outcome = "Ambiguous"
 
