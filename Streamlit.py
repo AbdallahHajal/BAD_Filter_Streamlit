@@ -66,10 +66,9 @@ def save_response_content(response, destination):
 
 try:
     # Attempt to download and then load the scaler and model
-    download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
-    download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
-    model = load('MM_model.pkl')
-    scaler = load('scaler_MM.pkl')
+    model= download_file_from_google_drive('1XrReRwiRXEnRNQsFWCv2RIxVGWiDeomj', 'MM_model.pkl')
+    scaler= download_file_from_google_drive('1cwHTeykD0WQ21gL8mcgtvJeKGMQ5w3M6', 'scaler_MM.pkl')
+
 except Exception as e:
     print(f"An error occurred: {e}")
     # Handle the error appropriately
