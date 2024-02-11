@@ -34,9 +34,20 @@ from mordred import Calculator, descriptors
 import pickle
 import requests
 import joblib
+def load_resource_lazy(file_path):
+    if file_path not in resource_cache:
+        try:
+            with open(file_path, 'rb') as f:
+                resource_cache[file_path] = pickle.load(f)
+        except Exception as e:
+            print(f"Error loading {file_path}: {str(e)}")
+            return None
+    gc.collect()
+    return resource_cache[file_path]
 
-model = joblib.load('MM_model.pkl')
-scaler = joblib.load('scaler_MM.pkl')
+model = load_resource_lazy('MM_model.pkl')
+scaler = load_resource_lazy('scaler_MM.pkl')
+
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
