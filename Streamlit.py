@@ -34,6 +34,14 @@ from mordred import Calculator, descriptors
 import pickle
 import requests
 import joblib
+# Cache for models, scalers, and training sets
+resource_cache = {}
+
+if not os.path.exists(UPLOAD_FOLDER):
+    os.makedirs(UPLOAD_FOLDER)
+
+ALLOWED_EXTENSIONS = {'csv', 'xlsx', 'xls'}
+
 def load_resource_lazy(file_path):
     if file_path not in resource_cache:
         try:
@@ -47,6 +55,7 @@ def load_resource_lazy(file_path):
 
 model = load_resource_lazy('MM_model.pkl')
 scaler = load_resource_lazy('scaler_MM.pkl')
+
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
