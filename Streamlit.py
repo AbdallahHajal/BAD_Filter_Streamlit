@@ -37,7 +37,34 @@ import pickle
 import requests
 import joblib
 from io import BytesIO
-import pickle
+
+
+# Specify the file names
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl'
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl'
+
+# Load the compressed model file
+try:
+    model = pickle.load(url)
+except Exception as e:
+    print("Error loading model:", e)
+    model = None
+
+# Load the scalar file
+try:
+      scaler = pickle.load(url2)
+except Exception as e:
+    print("Error loading scaler:", e)
+    scaler = None
+
+# Check if both model and scaler are loaded successfully
+if model is not None and scaler is not None:
+    print("Model and scaler loaded successfully.")
+    # You can now use 'model' and 'scaler' for prediction.
+else:
+    print("Failed to load model and/or scaler. Check file paths and file integrity.")
+
+
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
