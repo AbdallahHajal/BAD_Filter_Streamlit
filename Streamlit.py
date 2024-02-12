@@ -37,37 +37,10 @@ import pickle
 import requests
 import joblib
 from io import BytesIO
- 
-
 import pickle
-import gzip
 
-# Specify the file names
-file_name2 = 'New_scalar.pkl'
-file_name = 'New_MM.pkl.gz'
-
-# Load the compressed model file
-try:
-    with gzip.open(file_name, 'rb') as file:
-        model = pickle.load(file)
-except Exception as e:
-    print("Error loading model:", e)
-    model = None
-
-# Load the scalar file
-try:
-    with open(file_name2, "rb") as f:
-        scaler = pickle.load(f)
-except Exception as e:
-    print("Error loading scaler:", e)
-    scaler = None
-
-# Check if both model and scaler are loaded successfully
-if model is not None and scaler is not None:
-    print("Model and scaler loaded successfully.")
-    # You can now use 'model' and 'scaler' for prediction.
-else:
-    print("Failed to load model and/or scaler. Check file paths and file integrity.")
+model = pickle.load(open('New_MM.pkl', 'rb'))
+scaler = pickle.load(open('New_scalar.pkl', 'rb'))
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
