@@ -39,14 +39,6 @@ import joblib
 from io import BytesIO
  
 
-# Define the URLs of the pickle files on GitHub
-MM_MODEL_URI = "https://raw.githubusercontent.com/AbdallahHajal/BAD_Filter_Streamlit/main/MM_model.pkl"
-SCALER_MM_URI = "https://raw.githubusercontent.com/AbdallahHajal/BAD_Filter_Streamlit/main/scaler_MM.pkl"
-
-# Load the pickle files
-model = joblib.load(BytesIO(requests.get(MM_MODEL_URI).content))
-scaler = joblib.load(BytesIO(requests.get(SCALER_MM_URI).content))
-
 # Now you can use MM_model and scaler_MM as you need
 file_name1= 'MM_model.pkl'
 file_name2= 'scaler_MM.pkl'
