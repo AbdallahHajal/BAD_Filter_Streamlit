@@ -48,7 +48,11 @@ model = joblib.load(BytesIO(requests.get(MM_MODEL_URI).content))
 scaler = joblib.load(BytesIO(requests.get(SCALER_MM_URI).content))
 
 # Now you can use MM_model and scaler_MM as you need
+file_name1= 'MM_model.pkl'
+file_name2= 'scaler_MM.pkl'
 
+model = pickle.load(open(file_name1, "rb")) 
+scaler = pickle.load(open(file_name2, "rb")) 
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
