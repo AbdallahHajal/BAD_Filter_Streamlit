@@ -34,7 +34,7 @@ from email.message import EmailMessage
 from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
-from urllib.request import urlopen
+from urllib.request import urlretrieve
 import requests
 import joblib
 from io import BytesIO
@@ -43,8 +43,8 @@ url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/
 url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl'
 filename = url.split('/')[-1]
 filename2 = url2.split('/')[-1]
-urllib.request.urlretrieve(url, filename)
-urllib.request.urlretrieve(url2, filename)
+urlretrieve(url, filename)
+urlretrieve(url2, filename)
 
 # Specify the file names
 file2 = 'scaler_MM.pkl'
