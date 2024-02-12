@@ -34,25 +34,28 @@ from email.message import EmailMessage
 from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
+from urllib.request import urlopen
 import requests
 import joblib
 from io import BytesIO
 
+url2 = cp.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl", 'rb')) 
+url = cp.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl", 'rb')) 
 
 # Specify the file names
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl'
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl'
+file2 = 'scaler_MM.pkl'
+file = 'MM_model.pkl'
 
 # Load the compressed model file
 try:
-    model = pickle.load(url)
+    model = pickle.load(file)
 except Exception as e:
     print("Error loading model:", e)
     model = None
 
 # Load the scalar file
 try:
-      scaler = pickle.load(url2)
+      scaler = pickle.load(file2)
 except Exception as e:
     print("Error loading scaler:", e)
     scaler = None
