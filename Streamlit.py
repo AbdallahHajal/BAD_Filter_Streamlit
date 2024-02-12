@@ -40,11 +40,30 @@ from io import BytesIO
  
 
 # Now you can use MM_model and scaler_MM as you need
-file_name1= 'MM_model.pkl'
-file_name2= 'scaler_MM.pkl'
+import pickle
 
-model = pickle.load(open(file_name1, "rb")) 
-scaler = pickle.load(open(file_name2, "rb")) 
+file_name1 = 'MM_model.pkl'
+file_name2 = 'scaler_MM.pkl'
+
+try:
+    with open(file_name1, "rb") as f:
+        model = pickle.load(f)
+except Exception as e:
+    print("Error loading model:", e)
+    model = None
+
+try:
+    with open(file_name2, "rb") as f:
+        scaler = pickle.load(f)
+except Exception as e:
+    print("Error loading scaler:", e)
+    scaler = None
+
+if model is not None and scaler is not None:
+    print("Model and scaler loaded successfully.")
+    # You can now use 'model' and 'scaler' for prediction.
+else:
+    print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
