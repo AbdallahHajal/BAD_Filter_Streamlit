@@ -36,15 +36,34 @@ from mordred import Calculator, descriptors
 import pickle
 import requests
 import joblib
-# Cache for models, scalers, and training sets
-file_name_m = "MM_model.pkl" # Specify the same file name used for saving
-file_name_s="scaler_MM.pkl"
+from io import BytesIO
+ 
 
-with open(file_name_m, 'rb') as file:
-    model = pickle.load(file)
+# Now you can use MM_model and scaler_MM as you need
+import pickle
 
-with open(file_name_s, 'rb') as file:
-    scaler = pickle.load(file)
+file_name1 = 'MM_model.pkl'
+file_name2 = 'scaler_MM.pkl'
+
+try:
+    with open(file_name1, "rb") as f:
+        model = pickle.load(f)
+except Exception as e:
+    print("Error loading model:", e)
+    model = None
+
+try:
+    with open(file_name2, "rb") as f:
+        scaler = pickle.load(f)
+except Exception as e:
+    print("Error loading scaler:", e)
+    scaler = None
+
+if model is not None and scaler is not None:
+    print("Model and scaler loaded successfully.")
+    # You can now use 'model' and 'scaler' for prediction.
+else:
+    print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
