@@ -39,9 +39,6 @@ import joblib
 from io import BytesIO
 import pickle
 
-model = pickle.load(open('New_MM.pkl', 'rb'))
-scaler = pickle.load(open('New_scalar.pkl', 'rb'))
-
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
 #background of webpage
