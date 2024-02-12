@@ -39,19 +39,22 @@ import joblib
 from io import BytesIO
  
 
-# Now you can use MM_model and scaler_MM as you need
 import pickle
+import gzip
 
-file_name1 = 'MM_model.pkl'
-file_name2 = 'scaler_MM.pkl'
+# Specify the file names
+file_name2 = 'New_scalar.pkl'
+file_name = 'New_MM.pkl.gz'
 
+# Load the compressed model file
 try:
-    with open(file_name1, "rb") as f:
-        model = pickle.load(f)
+    with gzip.open(file_name, 'rb') as file:
+        model = pickle.load(file)
 except Exception as e:
     print("Error loading model:", e)
     model = None
 
+# Load the scalar file
 try:
     with open(file_name2, "rb") as f:
         scaler = pickle.load(f)
@@ -59,12 +62,12 @@ except Exception as e:
     print("Error loading scaler:", e)
     scaler = None
 
+# Check if both model and scaler are loaded successfully
 if model is not None and scaler is not None:
     print("Model and scaler loaded successfully.")
     # You can now use 'model' and 'scaler' for prediction.
 else:
     print("Failed to load model and/or scaler. Check file paths and file integrity.")
-
 
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
