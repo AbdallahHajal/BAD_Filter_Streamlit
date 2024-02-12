@@ -52,14 +52,16 @@ file = 'MM_model.pkl'
 
 # Load the compressed model file
 try:
-    model = pickle.load(file)
+    with open(file , 'rb') as f:
+        model = pickle.load(f)
 except Exception as e:
     print("Error loading model:", e)
     model = None
 
 # Load the scalar file
 try:
-      scaler = pickle.load(file2)
+    with open(file2 , 'rb') as f:
+        scaler = pickle.load(f)
 except Exception as e:
     print("Error loading scaler:", e)
     scaler = None
