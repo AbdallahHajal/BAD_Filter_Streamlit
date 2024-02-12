@@ -39,8 +39,8 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = cp.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl", 'rb')) 
-url = cp.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl", 'rb')) 
+url2 = urlopen.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl", 'rb')) 
+url = urlopen.load(urlopen("https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl", 'rb')) 
 
 # Specify the file names
 file2 = 'scaler_MM.pkl'
