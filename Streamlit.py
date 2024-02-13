@@ -39,8 +39,12 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.sav' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.sav'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/scalar_new_model.sav' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/Trained_model_MM_new.sav'
+
+#url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.sav' 
+#url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.sav'
+
 filename = url.split('/')[-1]
 filename2 = url2.split('/')[-1]
 urlretrieve(url, filename)
