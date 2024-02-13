@@ -39,16 +39,16 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scaler_MM.pkl' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/MM_model.pkl'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.sav' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.sav'
 filename = url.split('/')[-1]
 filename2 = url2.split('/')[-1]
 urlretrieve(url, filename)
 urlretrieve(url2, filename)
 
 # Specify the file names
-file2 = 'scaler_MM.pkl'
-file = 'MM_model.pkl'
+file2 = 'scalar_new_model.sav'
+file = 'Trained_model_MM_new.sav'
 
 # Load the compressed model file
 try:
