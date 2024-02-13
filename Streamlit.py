@@ -34,7 +34,7 @@ from email.message import EmailMessage
 from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
-from urllib.request
+import urllib.request
 import requests
 import joblib
 from io import BytesIO
