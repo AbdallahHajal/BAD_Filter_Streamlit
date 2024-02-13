@@ -39,8 +39,8 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.pkl' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.pkl'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/scalar_new_model.pkl' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/Trained_model_MM_new.pkl'
 
 # Define paths to save the downloaded files
 model_path = 'Trained_model_MM_new.pkl'
