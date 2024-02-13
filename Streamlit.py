@@ -41,25 +41,20 @@ from io import BytesIO
 
 url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/NEWEST_scalar_new_model.sav' 
 url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/NEWEST_model_MM_new.sav'
-c = 0
-if c < 1 :
-    # Load the compressed model file
-    model = None
-    scaler = None
-    c+=1
-# Load model if not already loaded
-if model is None:
-    try:
-        model = pickle.load(urllib.request.urlopen(url))
-    except Exception as e:
-        print("Error loading model:", e)
 
-# Load scaler if not already loaded
-if scaler is None:
-    try:
-        scaler = pickle.load(urllib.request.urlopen(url2))
-    except Exception as e:
-        print("Error loading scaler:", e)
+# Load the compressed model file
+try:
+    model = pickle.load(urllib.request.urlopen(url))
+except Exception as e:
+    print("Error loading model:", e)
+    model = None
+
+# Load the scalar file
+try:
+    scaler = pickle.load(urllib.request.urlopen(url2))
+except Exception as e:
+    print("Error loading scaler:", e)
+    scaler = None
 
 # Check if both model and scaler are loaded successfully
 if model is not None and scaler is not None:
