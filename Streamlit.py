@@ -47,16 +47,14 @@ url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/Tr
 
 # Load the compressed model file
 try:
-    with open(file , 'rb') as f:
-        model = pickle.load(urllib.request.urlopen(url)
+    model = pickle.load(urllib.request.urlopen(url)
 except Exception as e:
     print("Error loading model:", e)
     model = None
 
 # Load the scalar file
 try:
-    with open(file2 , 'rb') as f:
-        scaler = pickle.load(urllib.request.urlopen(url2)
+    scaler = pickle.load(urllib.request.urlopen(url2)
 except Exception as e:
     print("Error loading scaler:", e)
     scaler = None
