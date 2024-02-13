@@ -39,48 +39,31 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/scalar_new_model.sav' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/Trained_model_MM_new.sav'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/scalar_new_model.pkl' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/Trained_model_MM_new.pkl'
 
-model_path = 'Trained_model_MM_new.sav'
-scaler_path = 'scalar_new_model.sav'
+# Load the compressed model file
+model = None
+scaler = None
 
-def download_file(url, file_path):
-    if not os.path.exists(file_path):
-        try:
-            urllib.request.urlretrieve(url, file_path)
-            print(f"File downloaded successfully: {file_path}")
-        except Exception as e:
-            print(f"Error downloading file from {url}: {e}")
-            return False
-    else:
-        print(f"File already exists: {file_path}")
-    return True
-
-if download_file(url, model_path):
+# Load model if not already loaded
+if model is None:
     try:
-        with open(model_path, 'rb') as f:
-            model = pickle.load(f)
-        print("Model loaded successfully.")
+        model = pickle.load(urllib.request.urlopen(url))
     except Exception as e:
         print("Error loading model:", e)
-        model = None
-else:
-    model = None
 
-if download_file(url2, scaler_path):
+# Load scaler if not already loaded
+if scaler is None:
     try:
-        with open(scaler_path, 'rb') as f:
-            scaler = pickle.load(f)
-        print("Scaler loaded successfully.")
+        scaler = pickle.load(urllib.request.urlopen(url2))
     except Exception as e:
         print("Error loading scaler:", e)
-        scaler = None
-else:
-    scaler = None
 
+# Check if both model and scaler are loaded successfully
 if model is not None and scaler is not None:
     print("Model and scaler loaded successfully.")
+    # You can now use 'model' and 'scaler' for prediction.
 else:
     print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
