@@ -39,24 +39,48 @@ import requests
 import joblib
 from io import BytesIO
 
-#url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/scalar_new_model.sav' 
-#url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/Trained_model_MM_new.sav'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.pkl' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.pkl'
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.sav' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.sav'
+# Define paths to save the downloaded files
+model_path = 'Trained_model_MM_new.pkl'
+scaler_path = 'scalar_new_model.pkl'
 
-# Load the compressed model file
-try:
-    model = pickle.load(urllib.request.urlopen(url))
-except Exception as e:
-    print("Error loading model:", e)
+# Function to download files only once
+def download_file(url, file_path):
+    if not os.path.exists(file_path):
+        try:
+            urllib.request.urlretrieve(url, file_path)
+            print(f"File downloaded successfully: {file_path}")
+        except Exception as e:
+            print(f"Error downloading file from {url}: {e}")
+            return False
+    else:
+        print(f"File already exists: {file_path}")
+    return True
+
+# Download and load the compressed model file
+if download_file(url, model_path):
+    try:
+        with open(model_path, 'rb') as f:
+            model = pickle.load(f)
+        print("Model loaded successfully.")
+    except Exception as e:
+        print("Error loading model:", e)
+        model = None
+else:
     model = None
 
-# Load the scalar file
-try:
-    scaler = pickle.load(urllib.request.urlopen(url2))
-except Exception as e:
-    print("Error loading scaler:", e)
+# Download and load the scalar file
+if download_file(url2, scaler_path):
+    try:
+        with open(scaler_path, 'rb') as f:
+            scaler = pickle.load(f)
+        print("Scaler loaded successfully.")
+    except Exception as e:
+        print("Error loading scaler:", e)
+        scaler = None
+else:
     scaler = None
 
 # Check if both model and scaler are loaded successfully
