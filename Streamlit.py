@@ -66,8 +66,6 @@ if model is not None and scaler is not None:
 else:
     print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
-
-
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
 #background of webpage
