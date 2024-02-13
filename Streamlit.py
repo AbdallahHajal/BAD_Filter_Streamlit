@@ -294,7 +294,7 @@ elif selected == "Single Molecule Prediction":
 
                         X_test_scaled = preprocess_and_scale_MM(X_test, scaler)
                         
-                        prediction_proba = model.predict_proba(X_test_scaled)[:, 1]  # Assuming the second column is the probability of being an aggregator
+                        prediction_proba = model.predict_proba(X_test_scaled) # Assuming the second column is the probability of being an aggregator
                         
                         # Determine the outcome based on prediction
                         if prediction_proba < 0.3:
