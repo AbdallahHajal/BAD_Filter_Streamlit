@@ -41,12 +41,12 @@ from io import BytesIO
 
 url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/NEWEST_scalar_new_model.sav' 
 url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/NEWEST_model_MM_new.sav'
-c= 0
+c = 0
 if c < 1 :
     # Load the compressed model file
     model = None
     scaler = None
-    c++
+    c+=1
 # Load model if not already loaded
 if model is None:
     try:
