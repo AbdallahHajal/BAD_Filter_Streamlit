@@ -311,7 +311,7 @@ elif selected == "Single Molecule Prediction":
     st.write("These are False positives in drug discovery, they pollute the chemical space, and they usually lead to loss of time, effort, and resources.")
     st.write("Aggregators are driven by their nature. Our study showed that they are driven by their complex chemical structure and Amphiphilic properties.")
 
-elif selected == "Batch Calculation":
+elif selected == "Batch calculation":
     st.markdown('<h1 class="text-second-title">Batch Mode Calculation</h1>', unsafe_allow_html=True)
     st.write('Upload a CSV file containing SMILES strings for batch prediction of aggregation status.')
     st.markdown("""
