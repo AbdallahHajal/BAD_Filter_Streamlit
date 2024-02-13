@@ -346,8 +346,14 @@ elif selected == "Batch calculation":
                     X_test = descriptors_df[descriptor_columns_MM]
                     X_test_scaled = preprocess_and_scale_MM(X_test, scaler)
                     prediction_proba = model.predict_proba(X_test_scaled)[:, 1]
-                    prediction = 'Aggregator' if prediction_proba > 0.6 else 'Non-Aggregator' if prediction_proba < 0.3 else 'Ambiguous'
-                    predictions.append(prediction)
+                    for proba in prediction_proba:
+                        if proba < 0.3:
+                            outcome = "Non-Aggregator"
+                        elif proba > 0.7:
+                            outcome = "Aggregator"
+                        else:
+                            outcome = "Ambiguous"
+                    predictions.append(outcome)                    
                 except Exception as e:
                     predictions.append(f"Error: {str(e)}")
             data_file['Prediction'] = predictions
