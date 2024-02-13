@@ -34,7 +34,7 @@ from email.message import EmailMessage
 from rdkit.Chem import AllChem
 from mordred import Calculator, descriptors
 import pickle
-from urllib.request import urlretrieve
+from urllib.request
 import requests
 import joblib
 from io import BytesIO
@@ -45,19 +45,10 @@ url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/commits/Datasets/Tr
 #url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/scalar_new_model.sav' 
 #url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Datasets/Trained_model_MM_new.sav'
 
-filename = url.split('/')[-1]
-filename2 = url2.split('/')[-1]
-urlretrieve(url, filename)
-urlretrieve(url2, filename)
-
-# Specify the file names
-file2 = 'scalar_new_model.sav'
-file = 'Trained_model_MM_new.sav'
-
 # Load the compressed model file
 try:
     with open(file , 'rb') as f:
-        model = pickle.load(f)
+        model = pickle.load(urllib.request.urlopen(url)
 except Exception as e:
     print("Error loading model:", e)
     model = None
@@ -65,7 +56,7 @@ except Exception as e:
 # Load the scalar file
 try:
     with open(file2 , 'rb') as f:
-        scaler = pickle.load(f)
+        scaler = pickle.load(urllib.request.urlopen(url2)
 except Exception as e:
     print("Error loading scaler:", e)
     scaler = None
