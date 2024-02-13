@@ -41,9 +41,7 @@ from io import BytesIO
 
 url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/scaler_MM.pkl' 
 url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/download/Model/MM_model.pkl'
-@st.cache_data
-def get_data(url):
-    return urllib.request.urlopen(url)
+
 # Load the compressed model file
 try:
     model = pickle.load(urllib.request.urlopen(url))
