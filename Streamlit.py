@@ -39,14 +39,12 @@ import requests
 import joblib
 from io import BytesIO
 
-url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/scalar_new_model.pkl' 
-url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/Trained_model_MM_new.pkl'
+url2 = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/scalar_new_model.sav' 
+url = 'https://github.com/AbdallahHajal/BAD_Filter_Streamlit/releases/tag/Datasets/Trained_model_MM_new.sav'
 
-# Define paths to save the downloaded files
-model_path = 'Trained_model_MM_new.pkl'
-scaler_path = 'scalar_new_model.pkl'
+model_path = 'Trained_model_MM_new.sav'
+scaler_path = 'scalar_new_model.sav'
 
-# Function to download files only once
 def download_file(url, file_path):
     if not os.path.exists(file_path):
         try:
@@ -59,7 +57,6 @@ def download_file(url, file_path):
         print(f"File already exists: {file_path}")
     return True
 
-# Download and load the compressed model file
 if download_file(url, model_path):
     try:
         with open(model_path, 'rb') as f:
@@ -71,7 +68,6 @@ if download_file(url, model_path):
 else:
     model = None
 
-# Download and load the scalar file
 if download_file(url2, scaler_path):
     try:
         with open(scaler_path, 'rb') as f:
@@ -83,7 +79,6 @@ if download_file(url2, scaler_path):
 else:
     scaler = None
 
-# Check if both model and scaler are loaded successfully
 if model is not None and scaler is not None:
     print("Model and scaler loaded successfully.")
     # You can now use 'model' and 'scaler' for prediction.
