@@ -81,7 +81,6 @@ else:
 
 if model is not None and scaler is not None:
     print("Model and scaler loaded successfully.")
-    # You can now use 'model' and 'scaler' for prediction.
 else:
     print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
