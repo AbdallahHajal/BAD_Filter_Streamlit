@@ -297,9 +297,9 @@ elif selected == "Single Molecule Prediction":
                         prediction_proba = model.predict_proba(X_test_scaled)[:, 1]  # Assuming the second column is the probability of being an aggregator
                         
                         # Determine the outcome based on prediction
-                        if prediction[0] < 0.3:
+                        if prediction_proba < 0.3:
                             outcome = "Non-Aggregator"
-                        elif prediction[0] > 0.7:
+                        elif prediction_proba > 0.7:
                             outcome = "Aggregator"
                         else:
                             outcome = "Ambiguous"
