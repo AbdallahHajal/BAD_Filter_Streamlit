@@ -8,7 +8,7 @@ The BAD Molecule Filter is a machine learning tool specifically developed to rev
 
 ## Direct Web Use
 For convenient access to the Accurate Aggregates Predictor, please visit the following link and adhere to the instructions provided:
-[Direct Link to Web Server](URL_of_the_web_server)
+[Direct Link to Web Server](https://bad-molecule-filter.streamlit.app/)
 
 ## for using (local host)
 The model was also release for users can also use this filter directly on their own devices. please follow the **Installaion guide.ipynb** 
