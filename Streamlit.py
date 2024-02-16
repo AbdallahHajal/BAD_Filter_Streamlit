@@ -254,25 +254,42 @@ if selected == "Home":
         </ul>
         """, unsafe_allow_html=True)
     st.markdown("---")
+    custom_css = """
+    <style>
+        /* Center the tables on the page */
+        table {
+            margin-left: auto;
+            margin-right: auto;
+        }
 
+        /* Align text to left in table cells */
+        table td, table th {
+            text-align: left;
+        }
 
+        /* Remove additional space below tables */
+        .stMarkdown {
+            margin-bottom: -20px;
+        }
+    </style>
+"""
+    st.markdown(custom_css, unsafe_allow_html=True)
     model_details = {
-        "Metric": ["Sensitivity", "Specificity"],
-        "Value": ["95%", "76%"]
-    }
+    "Metric": ["Sensitivity", "Specificity"],
+    "Value": ["95%", "76%"]
+}
     model_details_df = pd.DataFrame(model_details)
     st.write(model_details_df.to_html(index=False), unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)  # Add space between tables
-    
-    # Outcome definitions in a table without index
+    st.markdown("<br>", unsafe_allow_html=True)
+
     outcomes = [
-        {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
-        {"Outcome": "Non-Aggregator", "Definition": "Identifies molecules with a low probability of aggregation."},
-        {"Outcome": "Ambiguous", "Definition": "Indicates molecules with uncertain aggregation properties; further investigation is advised."}
-    ]
+    {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
+    {"Outcome": "Non-Aggregator", "Definition": "Identifies molecules with a low probability of aggregation."},
+    {"Outcome": "Ambiguous", "Definition": "Indicates molecules with uncertain aggregation properties; further investigation is advised."}
+]
     outcomes_df = pd.DataFrame(outcomes)
     st.write(outcomes_df.to_html(index=False), unsafe_allow_html=True)
+
 
    
 # Single Molecule Prediction Section
