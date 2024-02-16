@@ -196,7 +196,7 @@ st.markdown(
 )
 menu_styles = {
     "container": {
-        "padding": "5px 10px",  # Increase padding for more space
+        "padding": "10px 15px",  # Increase padding for more space
         "background-color": "#f6f6f6",  # Neutral background for the container
         "border": "none",
         "box-shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",  # More subtle shadow
@@ -213,7 +213,7 @@ menu_styles = {
     },
     "nav-link-selected": {
         "background-color": "#ff8c00",  # Softer orange for selected item
-        "color": "#ffffff",  # White text for selected item
+        "color": "#000",  # White text for selected item
         "border-radius": "4px",  # Rounded corners for a modern touch
     }
 }
