@@ -254,7 +254,7 @@ if selected == "Home":
     st.markdown("---")
     st.write("""
         <ul>
-            <li><strong>The deployed model achieved performance metrics that highlight its precision in classifying molecular aggregation. The following tables display the Sensitivity and Specificity values that demonstrate the model's accuracy.</strong></li>
+            <li><strong>The deployed model achieved performance metrics that highlight its precision in classifying molecular aggregation. The following table display the Sensitivity and Specificity values that demonstrate the model's accuracy.</strong></li>
         </ul>
         """, unsafe_allow_html=True)
 
@@ -286,11 +286,11 @@ if selected == "Home":
 
     # Space between tables, adjust as necessary
     st.markdown("<br>", unsafe_allow_html=True)
-    st.markdown("""
-        <p style='text-align: left; font-size: 1.2rem;'>
-            The following tables display the model's outcomes and their definitions
-        </p>
-    """, unsafe_allow_html=True)
+    st.write("""
+        <ul>
+            <li><strong>The following tables display the model's outcomes and their definitions</strong></li>
+        </ul>
+        """, unsafe_allow_cchtml=True)
     # Outcome definitions in a larger table without index
     outcomes = [
         {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
