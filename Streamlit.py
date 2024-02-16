@@ -135,15 +135,14 @@ custom_css = """
     }
 
     @keyframes text-gradient-title {
-        0% { color: #ffedd5; }
-        50% { color: #fb923c; }
-        100% { color: #ffedd5; }
-    }
+    0%, 100% { color: #ffedd5; }
+    50% { color: #fb923c; }
+}
 
     .text-gradient-title {
         position: relative;
         top: -100px;
-        animation: text-gradient-title 4s ease-in-out infinite;
+        animation: text-gradient-title 10s ease-in-out infinite; /* Slowed down the animation */
         font-size: 70px;
         text-align: center;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Softer shadow for better legibility */
@@ -197,9 +196,10 @@ st.markdown(
 menu_styles = {
     "container": {
         "padding": "10px 15px",  # Increase padding for more space
+        "margin-bottom": "-20px",  # Pull the menu up closer to the title
         "background-color": "#f6f6f6",  # Neutral background for the container
         "border": "none",
-        "box-shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",  # More subtle shadow
+        "box-shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",
     },
     "icon": {
         "color": "#ff8c00",  # Softer orange color for the icons
