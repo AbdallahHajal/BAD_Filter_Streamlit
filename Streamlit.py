@@ -253,7 +253,7 @@ if selected == "Home":
         """, unsafe_allow_html=True)
     st.markdown("---")
     st.markdown("""
-        <p style='text-align: center; font-size: 1rem;'>
+        <p style='text-align: left; font-size: 2rem;'>
             The deployed model achieved performance metrics that highlight its 
             precision in classifying molecular aggregation. The following tables 
             display the Sensitivity and Specificity values that demonstrate the 
@@ -264,7 +264,7 @@ if selected == "Home":
     custom_table_css = """
         <style>
             table {
-                width: 80% !important; /* Set the width of the tables */
+                width: 50% !important; /* Set the width of the tables */
                 margin-left: auto !important;
                 margin-right: auto !important;
             }
@@ -289,7 +289,11 @@ if selected == "Home":
 
     # Space between tables, adjust as necessary
     st.markdown("<br>", unsafe_allow_html=True)
-
+    st.markdown("""
+        <p style='text-align: left; font-size: 2rem;'>
+            The following tables display the model's outcomes and their definitions
+        </p>
+    """, unsafe_allow_html=True)
     # Outcome definitions in a larger table without index
     outcomes = [
         {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
