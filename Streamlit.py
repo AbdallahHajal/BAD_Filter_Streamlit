@@ -63,13 +63,15 @@ if model is not None and scaler is not None:
 else:
     print("Failed to load model and/or scaler. Check file paths and file integrity.")
 
-st.set_page_config(page_title="BAD_Molecule_Filter")
+st.set_page_config(page_title="BAD_Molecule_Filter", layout="wide")
 
 #background of webpage
 page_bg_img = """
 <style>
 /* Full-width layout and subtle gradient background for the app container */
 [data-testid="stAppViewContainer"] > .main {
+    padding: 0;
+    margin: 0;
     max-width: 100%; /* This will expand the content to be wider. */
     background: linear-gradient(to right, #fff, #ffe0b2, #ffcc80); /* This creates a subtle gradient from white to light orange */
     background-size: cover;
@@ -163,12 +165,13 @@ st.markdown('<h1 class="text-gradient-title">BAD Molecule filter</h1>', unsafe_a
 
 
 success_style = """
-    background-color: #b0d1e0;
-    color: #525354;
-    border-radius: 10px;
+    background-color: #ffa500; /* Bright orange for more vibrancy */
+    color: #ffffff; /* White text for contrast */
+    border-radius: 5px; /* Rounded corners for a modern look */
     padding: 10px;
-    width: 80px;
-    fontSize: 25px;
+    width: 100%; /* Full width to stand out */
+    font-size: 1rem; /* Use rem for scalability */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
     animation-name: fadeOut;
     animation-duration: 5s;
 """
@@ -179,12 +182,14 @@ footer_style = """
     left: 0;
     z-index: 3;
     bottom: 0;
-    width: 100%;
+    width: 100%; /* Full width footer */
     color: #525354;
     font-style: italic;
-    text-align: left;
+    text-align: center; /* Centered text for a balanced look */
     padding: 10px;
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
     font-size: 16px;
+    border-top: 1px solid #ddd; /* Subtle border for separation */
 """
 st.markdown(
     f'<div style="{footer_style}">Copyright (C) 2024 Abdallah Abou Hajal</div>',
@@ -200,12 +205,12 @@ else:
 selected = option_menu(None, ["Home", "Single Molecule Prediction", "Batch calculation",  "Contact"],
                         icons=['house', "layers", "layers-fill",'cloud-upload', "capsule-pill","cloud-check", "question-diamond",'envelope-at'],
                         orientation="horizontal", manual_select=manual_select, key='menu_8', default_index = 0,
-                        styles={
-        "container": {"padding": "18!important", "background-color":"#b4bbbf", "width": "auto"},
-        "icon": {"color": "#4e5152", "font-size": "22px", "text-align" : "center"}, 
-        "nav-link": {"font-size": "24px", "text-align": "center", "margin":"0px", "--hover-color": "#757473", "font-color":"#0a0a0a"},
-        "nav-link-selected": {"background-color": "#5d93a3"},
-        })
+                      styles={
+    "container": {"padding": "0!important", "background-color":"#ffffff", "border": "none", "box-shadow": "0 2px 4px 0 rgba(0, 0, 0, 0.1)"},
+    "icon": {"color": "#ffa500", "font-size": "22px", "text-align" : "center"}, 
+    "nav-link": {"font-size": "24px", "text-align": "center", "margin":"0px", "--hover-color": "#ffcc80", "color":"#333"},
+    "nav-link-selected": {"background-color": "#ffa500", "color": "#ffffff"},
+})
 if selected == "Home":
     st.markdown("<h1 style='text-align: center; fontSize: 30px; font-style: italic; color: blue;'>Boosted Aggregation Detector: Decipher Molecule's aggregation status for more sucessful discoveies!</h1>", unsafe_allow_html=True)
     st.write('')
