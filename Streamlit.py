@@ -254,8 +254,28 @@ if selected == "Home":
         </ul>
         """, unsafe_allow_html=True)
     st.markdown("---")
+    custom_css = """
+        <style>
+            /* Center table elements */
+            .dataframe {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            /* Adjust spacing below tables */
+            .element-container {
+                margin-bottom: -20px;  /* Reduce space below each element */
+            }
+            
+            /* Additional CSS to remove padding below tables */
+            .stTable {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        </style>
+    """
+    st.markdown(custom_css, unsafe_allow_html=True)
 
-    # Model details in a table without index
     model_details = {
         "Metric": ["Sensitivity", "Specificity"],
         "Value": ["95%", "76%"]
@@ -263,8 +283,9 @@ if selected == "Home":
     model_details_df = pd.DataFrame(model_details)
     st.write(model_details_df.to_html(index=False), unsafe_allow_html=True)
     
-    st.markdown("<br>", unsafe_allow_html=True)  # Add space between tables
-    
+    # Space between tables
+    st.markdown("<br>", unsafe_allow_html=True)  # Adjust or remove as needed
+
     # Outcome definitions in a table without index
     outcomes = [
         {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
@@ -273,8 +294,6 @@ if selected == "Home":
     ]
     outcomes_df = pd.DataFrame(outcomes)
     st.write(outcomes_df.to_html(index=False), unsafe_allow_html=True)
-
-    st.markdown("---")
    
 # Single Molecule Prediction Section
 elif selected == "Single Molecule Prediction":
