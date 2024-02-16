@@ -252,42 +252,52 @@ if selected == "Home":
         </ul>
         """, unsafe_allow_html=True)
     st.markdown("---")
-    custom_css = """
-    <style>
-        /* Center the tables on the page */
-        table {
-            margin-left: auto;
-            margin-right: auto;
-        }
+    st.markdown("""
+        <p style='text-align: center; font-size: 1rem;'>
+            The deployed model achieved performance metrics that highlight its 
+            precision in classifying molecular aggregation. The following tables 
+            display the Sensitivity and Specificity values that demonstrate the 
+            model's accuracy.
+        </p>
+    """, unsafe_allow_html=True)
 
-        /* Align text to left in table cells */
-        table td, table th {
-            text-align: left;
-        }
+    custom_table_css = """
+        <style>
+            table {
+                width: 80% !important; /* Set the width of the tables */
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            th {
+                font-size: 1.1rem !important; /* Larger font size for headers */
+                text-align: left !important;
+            }
+            td {
+                font-size: 1rem !important; /* Larger font size for data */
+            }
+        </style>
+    """
+    st.markdown(custom_table_css, unsafe_allow_html=True)
 
-        /* Remove additional space below tables */
-        .stMarkdown {
-            margin-bottom: -20px;
-        }
-    </style>
-"""
-    st.markdown(custom_css, unsafe_allow_html=True)
+    # Model details in a larger table without index
     model_details = {
-    "Metric": ["Sensitivity", "Specificity"],
-    "Value": ["95%", "76%"]
-}
+        "Metric": ["Sensitivity", "Specificity"],
+        "Value": ["95%", "76%"]
+    }
     model_details_df = pd.DataFrame(model_details)
     st.write(model_details_df.to_html(index=False), unsafe_allow_html=True)
+
+    # Space between tables, adjust as necessary
     st.markdown("<br>", unsafe_allow_html=True)
 
+    # Outcome definitions in a larger table without index
     outcomes = [
-    {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
-    {"Outcome": "Non-Aggregator", "Definition": "Identifies molecules with a low probability of aggregation."},
-    {"Outcome": "Ambiguous", "Definition": "Indicates molecules with uncertain aggregation properties; further investigation is advised."}
-]
+        {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
+        {"Outcome": "Non-Aggregator", "Definition": "Identifies molecules with a low probability of aggregation."},
+        {"Outcome": "Ambiguous", "Definition": "Indicates molecules with uncertain aggregation properties; further investigation is advised."}
+    ]
     outcomes_df = pd.DataFrame(outcomes)
     st.write(outcomes_df.to_html(index=False), unsafe_allow_html=True)
-
 
    
 # Single Molecule Prediction Section
