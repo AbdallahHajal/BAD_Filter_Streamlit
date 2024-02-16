@@ -252,14 +252,11 @@ if selected == "Home":
         </ul>
         """, unsafe_allow_html=True)
     st.markdown("---")
-    st.markdown("""
-        <p style='text-align: left; font-size: 1.2rem;'>
-            The deployed model achieved performance metrics that highlight its 
-            precision in classifying molecular aggregation. The following tables 
-            display the Sensitivity and Specificity values that demonstrate the 
-            model's accuracy.
-        </p>
-    """, unsafe_allow_html=True)
+    st.write("""
+        <ul>
+            <li><strong>The deployed model achieved performance metrics that highlight its precision in classifying molecular aggregation. The following tables display the Sensitivity and Specificity values that demonstrate the model's accuracy.</strong></li>
+        </ul>
+        """, unsafe_allow_html=True)
 
     custom_table_css = """
         <style>
