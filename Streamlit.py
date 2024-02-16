@@ -66,7 +66,7 @@ else:
 st.set_page_config(page_title="BAD_Molecule_Filter")
 
 #background of webpage
-page_bg_img = f"""
+page_bg_img = """
 <style>
 /* Full-width layout and gradient background for the app container */
 [data-testid="stAppViewContainer"] > .main {
