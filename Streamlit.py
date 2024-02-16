@@ -68,17 +68,18 @@ st.set_page_config(page_title="BAD_Molecule_Filter")
 #background of webpage
 page_bg_img = f"""
 <style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://raw.githubusercontent.com/nczub/APP/2475af8d4e836424e301f5829c83cbbf8632d2dc/background_14_07_2023.svg");
-background-size: cover;
-background-position: top;
-#background-repeat: repeat;
-background-attachment: local;
-}}
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
+/* Full-width layout and gradient background for the app container */
+[data-testid="stAppViewContainer"] > .main {
+    max-width: 95%; /* This will expand the content to be wider. */
+    background: linear-gradient(to right, #ffa500, #ff7f50); /* This creates a gradient from orange to coral */
+    background-size: cover;
+    background-attachment: local;
+}
 
-}}
+/* Transparent header to match with the new background */
+[data-testid="stHeader"] {
+    background: rgba(0,0,0,0);
+}
 </style>
 """
 st.markdown(page_bg_img, unsafe_allow_html=True)
