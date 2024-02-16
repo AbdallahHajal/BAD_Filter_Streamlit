@@ -253,12 +253,17 @@ if selected == "Home":
             <li><strong>Contact Us:</strong> Connect with the MolMod Lab team for support, feedback, or inquiries about the BAD Molecule Filter.</li>
         </ul>
         """, unsafe_allow_html=True)
+    st.markdown("---")
+
+    # Model details in a table without index
     model_details = {
-    "Metric": ["Sensitivity", "Specificity"],
-    "Value": ["95%", "76%"]
-}
+        "Metric": ["Sensitivity", "Specificity"],
+        "Value": ["95%", "76%"]
+    }
     model_details_df = pd.DataFrame(model_details)
     st.write(model_details_df.to_html(index=False), unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)  # Add space between tables
     
     # Outcome definitions in a table without index
     outcomes = [
@@ -269,16 +274,7 @@ if selected == "Home":
     outcomes_df = pd.DataFrame(outcomes)
     st.write(outcomes_df.to_html(index=False), unsafe_allow_html=True)
 
-    st.write(":small_blue_diamond: **Batch calculation**")
-    st.write("Sometimes you need to work more efficiently, so we created a batch mode. It gives you the ability to predict the Aggregation status for selected targets and for more than one molecule at a time.")
-    st.write('')
-    st.write(":small_blue_diamond: **Q&A**")
-    st.write("The question and answer subpage allows you to review possible problems when using this application.")
-    st.write('')
-    st.write(":small_blue_diamond: **Contact**")
-    st.write("The last subpage contains information on how to contact the author of **BAD Molecule Filter**.")
-    st.write('')
-    st.write('---')
+    st.markdown("---")
    
 # Single Molecule Prediction Section
 elif selected == "Single Molecule Prediction":
