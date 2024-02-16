@@ -246,11 +246,14 @@ if selected == "Home":
     st.write("In the menu above you can find the main sections:")
     st.write(":small_blue_diamond: **Single Molecule prediction**")
     st.write("""
-    """
-    The model provided for prediction is based on the largest available datasets for aggregation. Upon analysis, 
-    each molecule will be classified into one of three categories: Aggregator, Non-Aggregator, or Ambiguous. 
-    This classification is determined by the model's assessment of the likelihood that the query molecule acts as an aggregator.
-    """,unsafe_allow_html=True)
+        <h5 style='font-size: 1.1rem; color: #333;'>Explore the Features</h5>
+        <ul>
+            <li><strong>Single Molecule Prediction:</strong> Assess individual molecules with our robust model, which draws from comprehensive aggregation data.</li>
+            <li><strong>Batch Calculation:</strong> Increase your efficiency with our batch processing feature, enabling aggregation status predictions for multiple molecules simultaneously.</li>
+            <li><strong>Q&A Hub:</strong> Navigate common hurdles with our helpful Q&A resource, designed to enhance your application experience.</li>
+            <li><strong>Contact Us:</strong> Connect with the MolMod Lab team for support, feedback, or inquiries about the BAD Molecule Filter.</li>
+        </ul>
+        """, unsafe_allow_html=True)
     model_details = {
     "Metric": ["Sensitivity", "Specificity"],
     "Value": ["95%", "76%"]
