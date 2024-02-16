@@ -69,8 +69,8 @@ st.set_page_config(page_title="BAD_Molecule_Filter", layout="wide")
 page_bg_img = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
-    padding: 0;
-    margin: 0;
+    padding: 20;
+    margin: 20;
     max-width: 100%;
     background: linear-gradient(to right, #ffffff, #fff7e6); /* White to very light orange gradient */
     background-size: cover;
