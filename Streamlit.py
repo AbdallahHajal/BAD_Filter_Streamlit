@@ -142,8 +142,8 @@ custom_css = """
         position: relative;
         top: -100px;
         animation: text-gradient-title 4s ease-in-out infinite;
-        font-size: 90px;
-        text-align: left;
+        font-size: 70px;
+        text-align: center;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Softer shadow for better legibility */
         font-style: italic;
     }
