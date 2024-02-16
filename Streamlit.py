@@ -123,28 +123,28 @@ def clear_text():
 custom_css = """
 <style>
     :root {
-        font-size: 20px;
-        text-align: justify;
+        font-size: 16px;
+        text-align: left;
     }
     .text-second-title {
-        font-size: 40px;
+        font-size: 2rem;
         text-align: left;
-        color: #525354;
+        color: #f97316;
     }
 
     @keyframes text-gradient-title {
-        0% { color: grey; }
-        50% { color: #91b3bd; }
-        100% { color: grey; }
+        0% { color: #ffedd5; }
+        50% { color: #fb923c; }
+        100% { color: #ffedd5; }
     }
 
     .text-gradient-title {
-        position: sticky;
-        top: 0px;
+        position: relative;
+        top: -20px;
         animation: text-gradient-title 4s ease-in-out infinite;
-        font-size: 130px;
+        font-size: 100px;
         text-align: center;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Softer shadow for better legibility */
         font-style: italic;
     }
     .centered-image {
