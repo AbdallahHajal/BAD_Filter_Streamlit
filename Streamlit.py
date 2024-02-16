@@ -68,12 +68,11 @@ st.set_page_config(page_title="BAD_Molecule_Filter", layout="wide")
 #background of webpage
 page_bg_img = """
 <style>
-/* Full-width layout and subtle gradient background for the app container */
 [data-testid="stAppViewContainer"] > .main {
     padding: 0;
     margin: 0;
-    max-width: 100%; /* This will expand the content to be wider. */
-    background: linear-gradient(to right, #fff, #ffe0b2, #ffcc80); /* This creates a subtle gradient from white to light orange */
+    max-width: 100%;
+    background: linear-gradient(to right, #ffffff, #fff7e6); /* White to very light orange gradient */
     background-size: cover;
     background-attachment: local;
 }
@@ -192,33 +191,33 @@ footer_style = """
     border-top: 1px solid #ddd; /* Subtle border for separation */
 """
 st.markdown(
-    f'<div style="{footer_style}">Copyright (C) 2024 Abdallah Abou Hajal</div>',
+    f'<div style="{footer_style}">Copyright (C) 2024 MolMod Lab</div>',
     unsafe_allow_html=True
 )
 menu_styles = {
     "container": {
-        "padding": "0!important",
-        "background-color": "#ffffff",  # White background for the container
+        "padding": "5px 10px",  # Increase padding for more space
+        "background-color": "#f6f6f6",  # Neutral background for the container
         "border": "none",
-        "box-shadow": "0 2px 4px 0 rgba(0, 0, 0, 0.1)"  # Subtle shadow for depth
+        "box-shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",  # More subtle shadow
     },
     "icon": {
-        "color": "#ffa500",  # Orange color for the icons
-        "font-size": "22px",
-        "text-align": "center"
+        "color": "#ff8c00",  # Softer orange color for the icons
+        "font-size": "20px",  # Slightly reduced icon size
     },
     "nav-link": {
-        "font-size": "24px",
-        "text-align": "center",
-        "margin": "0px",
-        "--hover-color": "#ffcc80",  # Lighter orange for hover
-        "color": "#333"  # Dark text color for contrast
+        "font-size": "18px",  # Reduced font size for a more refined look
+        "padding": "10px 15px",  # Increase padding for a larger click area
+        "--hover-color": "#ffaf66",  # Lighter orange for hover
+        "color": "#333333",  # Dark text color for better readability
     },
     "nav-link-selected": {
-        "background-color": "#ffa500",  # Orange background for selected item
-        "color": "#ffffff"  # White text for selected item
+        "background-color": "#ff8c00",  # Softer orange for selected item
+        "color": "#ffffff",  # White text for selected item
+        "border-radius": "4px",  # Rounded corners for a modern touch
     }
 }
+
 
 if st.session_state.get('switch_button', False):
     st.session_state['menu_option'] = (st.session_state.get('menu_option', 0) + 1) % 2
