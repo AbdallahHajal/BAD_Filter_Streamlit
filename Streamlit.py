@@ -248,7 +248,6 @@ if selected == "Home":
         <ul>
             <li><strong>Single Molecule Prediction:</strong> Assess individual molecules with our robust model, which draws from comprehensive aggregation data.</li>
             <li><strong>Batch Calculation:</strong> Increase your efficiency with our batch processing feature, enabling aggregation status predictions for multiple molecules simultaneously.</li>
-            <li><strong>Q&A Hub:</strong> Navigate common hurdles with our helpful Q&A resource, designed to enhance your application experience.</li>
             <li><strong>Contact Us:</strong> Connect with the MolMod Lab team for support, feedback, or inquiries about the BAD Molecule Filter.</li>
         </ul>
         """, unsafe_allow_html=True)
