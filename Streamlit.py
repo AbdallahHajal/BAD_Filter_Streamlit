@@ -68,10 +68,10 @@ st.set_page_config(page_title="BAD_Molecule_Filter")
 #background of webpage
 page_bg_img = """
 <style>
-/* Full-width layout and gradient background for the app container */
+/* Full-width layout and subtle gradient background for the app container */
 [data-testid="stAppViewContainer"] > .main {
-    max-width: 95%; /* This will expand the content to be wider. */
-    background: linear-gradient(to right, #ffa500, #ff7f50); /* This creates a gradient from orange to coral */
+    max-width: 100%; /* This will expand the content to be wider. */
+    background: linear-gradient(to right, #fff, #ffe0b2, #ffcc80); /* This creates a subtle gradient from white to light orange */
     background-size: cover;
     background-attachment: local;
 }
