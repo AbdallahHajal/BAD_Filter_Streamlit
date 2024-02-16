@@ -244,9 +244,8 @@ if selected == "Home":
     st.subheader("How it Works")
     st.write("The BAD Molecule Filter leverages sophisticated Decision Tree Ensemble Methods to accurately classify Small Colloidally Aggregating Molecules (SCAMs). By enhancing the precision of SCAM detection, our tool significantly boosts hit rate optimization, reducing time and resources in early drug discovery stages.")
     st.write("In the menu above you can find the main sections:")
-    st.write(":small_blue_diamond: **Single Molecule prediction**")
+    st.write(":small_blue_diamond: **Explore the Features**")
     st.write("""
-        <h5 style='font-size: 1.1rem; color: #333;'>Explore the Features</h5>
         <ul>
             <li><strong>Single Molecule Prediction:</strong> Assess individual molecules with our robust model, which draws from comprehensive aggregation data.</li>
             <li><strong>Batch Calculation:</strong> Increase your efficiency with our batch processing feature, enabling aggregation status predictions for multiple molecules simultaneously.</li>
