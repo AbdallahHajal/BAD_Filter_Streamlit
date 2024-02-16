@@ -140,10 +140,10 @@ custom_css = """
 
     .text-gradient-title {
         position: relative;
-        top: -80px;
+        top: -100px;
         animation: text-gradient-title 4s ease-in-out infinite;
-        font-size: 100px;
-        text-align: center;
+        font-size: 90px;
+        text-align: left;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Softer shadow for better legibility */
         font-style: italic;
     }
