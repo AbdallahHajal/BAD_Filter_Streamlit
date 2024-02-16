@@ -196,7 +196,7 @@ st.markdown(
 menu_styles = {
     "container": {
         "padding": "10px 15px",  # Increase padding for more space
-        "margin-bottom": "-20px",  # Pull the menu up closer to the title
+        "margin-bottom": "-50px",  # Pull the menu up closer to the title
         "background-color": "#f6f6f6",  # Neutral background for the container
         "border": "none",
         "box-shadow": "0 1px 3px rgba(0, 0, 0, 0.1)",
