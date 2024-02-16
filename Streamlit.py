@@ -288,9 +288,9 @@ if selected == "Home":
     st.markdown("<br>", unsafe_allow_html=True)
     st.write("""
         <ul>
-            <li><strong>The following tables display the model's outcomes and their definitions</strong></li>
+            <li><strong>The following tables display the model's outcomes and their definitions.</strong></li>
         </ul>
-        """, unsafe_allow_cchtml=True)
+        """, unsafe_allow_html=True)
     # Outcome definitions in a larger table without index
     outcomes = [
         {"Outcome": "Aggregator", "Definition": "Identifies molecules with a high probability of aggregation."},
