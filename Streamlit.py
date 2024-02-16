@@ -362,8 +362,12 @@ elif selected == "Single Molecule Prediction":
 
     st.write("---")
     st.subheader("Aggregators in Drug Discovery")
-    st.write("These are False positives in drug discovery, they pollute the chemical space, and they usually lead to loss of time, effort, and resources.")
-    st.write("Aggregators are driven by their nature. Our study showed that they are driven by their complex chemical structure and Amphiphilic properties.")
+    st.markdown("""
+    <h2 style='font-size: 1.5rem; color: #333;'>Aggregators in Drug Discovery</h2>
+    <p>
+        Aggregators represent a significant challenge in drug discovery, often manifesting as false positives that can obscure true findings. These compounds can pollute the chemical space, leading to considerable loss of time, effort, and resources. Understanding the nature of aggregators is crucial; our research indicates that their propensity to aggregate is closely linked to their complex chemical structures and amphiphilic properties, which drive their behavior in biological systems.
+    </p>
+""", unsafe_allow_html=True)
 
 elif selected == "Batch calculation":
     st.markdown('<h1 class="text-second-title">Batch Mode Calculation</h1>', unsafe_allow_html=True)
