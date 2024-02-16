@@ -140,7 +140,7 @@ custom_css = """
 
     .text-gradient-title {
         position: relative;
-        top: -20px;
+        top: -80px;
         animation: text-gradient-title 4s ease-in-out infinite;
         font-size: 100px;
         text-align: center;
