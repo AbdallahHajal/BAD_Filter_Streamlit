@@ -363,7 +363,6 @@ elif selected == "Single Molecule Prediction":
     st.write("---")
     st.subheader("Aggregators in Drug Discovery")
     st.markdown("""
-    <h2 style='font-size: 1.5rem; color: #333;'>Aggregators in Drug Discovery</h2>
     <p>
         Aggregators represent a significant challenge in drug discovery, often manifesting as false positives that can obscure true findings. These compounds can pollute the chemical space, leading to considerable loss of time, effort, and resources. Understanding the nature of aggregators is crucial; our research indicates that their propensity to aggregate is closely linked to their complex chemical structures and amphiphilic properties, which drive their behavior in biological systems.
     </p>
