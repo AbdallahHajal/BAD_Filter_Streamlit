@@ -233,25 +233,24 @@ selected = option_menu(None, ["Home", "Single Molecule Prediction", "Batch calcu
                        default_index=0,
                        styles=menu_styles)
 if selected == "Home":
-    st.markdown(
-    "<h1 style='text-align: center; font-size: 30px; font-style: italic; color: #333;'>"
-    "Boosted Aggregation Detector: Decipher Molecule's aggregation status for more successful discoveries!</h1>", 
-    unsafe_allow_html=True
-)
-    st.write('')
-    st.markdown("<h1 style='text-align: center; fontSize: 23px; color: grey; font-weight: normal;'>Discover Molecules Aggregation predictions with our cutting-edge app.</h1>", unsafe_allow_html=True)
-    st.write("---")
-    st.subheader("Instruction")
-    st.write("This application provides is developed to revolutionize drug discovery by precisely identifying Small Colloidally Aggregating Molecules (SCAMs). Utilizing state-of-the-art Decision Tree Ensemble Methods, this tool improves the accuracy of SCAM detection. This tool plays a vital role in significantly enhancing the efficiency of hit rate optimization while concurrently minimizing the time and resources spent on testing and validation in the critical early stages of drug discovery.")
-    st.write("In the menu above you can find the main sections:")
-    st.write(":small_blue_diamond: **Single Molecule prediction**")
-    st.write("""
-    The model provided for prediction is based on the largest available datasets for aggregation. Upon analysis, 
-    each molecule will be classified into one of three categories: Aggregator, Non-Aggregator, or Ambiguous. 
-    This classification is determined by the model's assessment of the likelihood that the query molecule acts as an aggregator.
-    """)
+    st.markdown("""
+        <h1 style='text-align: center; font-size: 2.5rem; color: #333;'>BAD Molecule filter</h1>
+        <h2 style='text-align: center; font-size: 2rem; color: #333;'>Boosted Aggregation Detector</h2>
+        <h3 style='text-align: center; font-size: 1.5rem; font-weight: normal; color: #555;'>Decipher Molecule's aggregation status for more successful discoveries!</h3>
+        <p style='text-align: center; font-style: italic; color: #777;'>Discover Molecules Aggregation predictions with our cutting-edge app.</p>
+        <h4 style='font-size: 1.25rem; color: #333;'>Instruction</h4>
+        <p>This application is developed to revolutionize drug discovery by precisely identifying Small Colloidally Aggregating Molecules (SCAMs). Utilizing state-of-the-art Decision Tree Ensemble Methods, this tool improves the accuracy of SCAM detection. This tool plays a vital role in significantly enhancing the efficiency of hit rate optimization while concurrently minimizing the time and resources spent on testing and validation in the critical early stages of drug discovery.</p>
+        <h5 style='font-size: 1.1rem; color: #333;'>Main Sections</h5>
+        <ul>
+            <li><strong>Single Molecule prediction</strong> - Analyze molecules individually with our predictive model based on extensive datasets for aggregation.</li>
+            <li><strong>Batch calculation</strong> - Optimize your workflow by predicting the aggregation status for multiple molecules simultaneously.</li>
+            <li><strong>Q&A</strong> - Find answers to common questions and troubleshooting tips for using the application.</li>
+            <li><strong>Contact</strong> - Reach out to the MolMod Lab team for further assistance or inquiries.</li>
+        </ul>
+        """, unsafe_allow_html=True)
 
-    # Model details in a table
+    st.write("---")
+
     model_details = {
         "Metric": ["Sensitivity", "Specificity"],
         "Value": ["95%", "76%"]
