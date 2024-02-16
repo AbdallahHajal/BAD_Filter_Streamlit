@@ -195,6 +195,30 @@ st.markdown(
     f'<div style="{footer_style}">Copyright (C) 2024 Abdallah Abou Hajal</div>',
     unsafe_allow_html=True
 )
+menu_styles = {
+    "container": {
+        "padding": "0!important",
+        "background-color": "#ffffff",  # White background for the container
+        "border": "none",
+        "box-shadow": "0 2px 4px 0 rgba(0, 0, 0, 0.1)"  # Subtle shadow for depth
+    },
+    "icon": {
+        "color": "#ffa500",  # Orange color for the icons
+        "font-size": "22px",
+        "text-align": "center"
+    },
+    "nav-link": {
+        "font-size": "24px",
+        "text-align": "center",
+        "margin": "0px",
+        "--hover-color": "#ffcc80",  # Lighter orange for hover
+        "color": "#333"  # Dark text color for contrast
+    },
+    "nav-link-selected": {
+        "background-color": "#ffa500",  # Orange background for selected item
+        "color": "#ffffff"  # White text for selected item
+    }
+}
 
 if st.session_state.get('switch_button', False):
     st.session_state['menu_option'] = (st.session_state.get('menu_option', 0) + 1) % 2
@@ -203,16 +227,18 @@ else:
     manual_select = None
   
 selected = option_menu(None, ["Home", "Single Molecule Prediction", "Batch calculation",  "Contact"],
-                        icons=['house', "layers", "layers-fill",'cloud-upload', "capsule-pill","cloud-check", "question-diamond",'envelope-at'],
-                        orientation="horizontal", manual_select=manual_select, key='menu_8', default_index = 0,
-                      styles={
-    "container": {"padding": "0!important", "background-color":"#ffffff", "border": "none", "box-shadow": "0 2px 4px 0 rgba(0, 0, 0, 0.1)"},
-    "icon": {"color": "#ffa500", "font-size": "22px", "text-align" : "center"}, 
-    "nav-link": {"font-size": "24px", "text-align": "center", "margin":"0px", "--hover-color": "#ffcc80", "color":"#333"},
-    "nav-link-selected": {"background-color": "#ffa500", "color": "#ffffff"},
-})
+                       icons=['house', "layers", "layers-fill",'cloud-upload', "capsule-pill","cloud-check", "question-diamond",'envelope-at'],
+                       orientation="horizontal",
+                       manual_select=manual_select,
+                       key='menu_8',
+                       default_index=0,
+                       styles=menu_styles)
 if selected == "Home":
-    st.markdown("<h1 style='text-align: center; fontSize: 30px; font-style: italic; color: blue;'>Boosted Aggregation Detector: Decipher Molecule's aggregation status for more sucessful discoveies!</h1>", unsafe_allow_html=True)
+    st.markdown(
+    "<h1 style='text-align: center; font-size: 30px; font-style: italic; color: #333;'>"
+    "Boosted Aggregation Detector: Decipher Molecule's aggregation status for more successful discoveries!</h1>", 
+    unsafe_allow_html=True
+)
     st.write('')
     st.markdown("<h1 style='text-align: center; fontSize: 23px; color: grey; font-weight: normal;'>Discover Molecules Aggregation predictions with our cutting-edge app.</h1>", unsafe_allow_html=True)
     st.write("---")
