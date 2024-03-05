@@ -7,7 +7,7 @@ The BAD Molecule Filter is a machine learning tool specifically developed to rev
 ![Workflow](https://github.com/AbdallahHajal/BAD-Molecule-Filter/assets/143398246/d86a13fe-3dca-44a4-b4d7-68afef7087f6)
 
 ## Direct Web Use
-For convenient access to the Accurate Aggregates Predictor, please visit the following link and adhere to the instructions provided:
+For convenient access to the BAD molecule filter, please visit the following link and adhere to the instructions provided:
 [Direct Link to Web Server](https://bad-molecule-filter.streamlit.app/)
 
 ## for using (local host)
